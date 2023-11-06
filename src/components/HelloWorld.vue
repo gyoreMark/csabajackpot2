@@ -1,58 +1,102 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div class="background">
+    <div class="container">
+      <h1 class="title">
+        <i class="fa-solid fa-coins" style="color: #ffffff"></i> Coin Machine
+        <i class="fa-solid fa-coins" style="color: #ffffff"></i>
+      </h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text" v-if="ideaGyumolcsot">
+                {{ ideaGyumolcsot.icon }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text" v-if="ideaGyumolcsot">
+                {{ ideaGyumolcsot.icon }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text" v-if="ideaGyumolcsot">
+                {{ ideaGyumolcsot.icon }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2" id="btnStyle">
+          <button
+            class="btn btn-outline-light"
+            type="button"
+            @click="gyumolcsMegjelenik"
+          >
+            Játék
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+
+  data() {
+    return {
+      gyumolcsok: [
+        { name: "Citrom", icon: '<i class="fa-solid fa-lemon"></i>' },
+        { name: "ALma", icon: '<i class="fa-solid fa-apple-whole"></i>' },
+        { name: "Levél", icon: '<i class="fa-solid fa-leaf"></i>' },
+        { name: "Chili", icon: '<i class="fa-solid fa-pepper-hot">' },
+        { name: "Répa", icon: '<i class="fa-solid fa-carrot">' },
+      ],
+
+      ideaGyumolcsot: 0, //???
+    };
+  },
+
+  methods: {
+    gyumolcsMegjelenik() {
+      // const randomIndex = Math.floor(Math.random() * this.gyumolcsok.length);
+      // this.ideaGyumolcsot = this.gyumolcsok[randomIndex];
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.background {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.title {
+  margin-bottom: 25px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+#btnStyle {
+  margin-top: 25px;
 }
 </style>
